@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "git": "git add . && git commit -m 'deploy' && git push origin main",
     "lint": "next lint"
   },
   "dependencies": {
