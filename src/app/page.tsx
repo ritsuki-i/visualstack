@@ -32,7 +32,7 @@ export default function Home() {
       </AnimatePresence>
 
       <div className={`h-full flex items-center justify-center ${isFirstTime && showRules ? "hidden" : ""}`}>
-        <UnityWebGL onStart={handleStartUnity} />
+        <UnityWebGL/>
       </div>
 
       <motion.div
