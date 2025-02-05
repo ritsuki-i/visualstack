@@ -10,7 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mediapipe/drawing_utils": "^0.3.1675466124",
+    "@mediapipe/hands": "^0.4.1675469240",
     "cors": "^2.8.5",
+    "framer-motion": "^12.3.1",
     "next": "14.2.18",
     "react": "^18",
     "react-dom": "^18",
