@@ -10,23 +10,23 @@ interface RulesPopupProps {
 const rules = [
   {
     text: "手をWebカメラにかざすとUnity上に手のポイントが出現します。",
-    image: "/images/rule1.png",
+    image: "/images/noimg.png",
   },
   {
     text: "上部でOKマークをかざすことで新しい物体が出現します。",
-    image: "/images/rule2.png",
+    image: "/images/noimg.png",
   },
   {
     text: "OKマークをかざすことで物体を掴んだり離したりできます。",
-    image: "/images/rule3.png",
+    image: "/images/noimg.png",
   },
   {
     text: "同じ物体をぶつけると合体して大きくなります。",
-    image: "/images/rule4.png",
+    image: "/images/noimg.png",
   },
   {
     text: "高く積み上げるまたは同じ物体が合体することでスコアが上がります！",
-    image: "/images/rule5.png",
+    image: "/images/noimg.png",
   },
   {
     text: "さあ、ハイスコアを目指して積み上げましょう！！",

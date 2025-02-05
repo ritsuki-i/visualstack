@@ -14,8 +14,10 @@ export default function Home() {
 
   const handleStartUnity = () => {
     setIsLoading(true)
-    // Unityの読み込みが完了したら以下を呼び出す
-    // setIsLoading(false)
+  }
+
+  const handleUnityLoaded = () => {
+    setIsLoading(false)
   }
 
   const handleCloseRules = () => {
@@ -31,8 +33,12 @@ export default function Home() {
         {showRules && <RulesPopup onClose={handleCloseRules} isFirstTime={isFirstTime} />}
       </AnimatePresence>
 
-      <div className={`h-full flex items-center justify-center ${isFirstTime && showRules ? "hidden" : ""}`}>
-        <UnityWebGL/>
+      <div className={`h-full ${isFirstTime && showRules ? "hidden" : ""}`}>
+        <UnityWebGL
+          onStart={handleStartUnity}
+          onLoaded={handleUnityLoaded}
+          className={`h-full flex items-center justify-center ${isFirstTime && showRules ? "hidden" : ""}`}
+        />
       </div>
 
       <motion.div
