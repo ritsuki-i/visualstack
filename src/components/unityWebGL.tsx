@@ -11,6 +11,28 @@ export default function UnityWebGL({ onStart, onLoaded, className = "" }: UnityW
     const [isLoading, setIsLoading] = useState(false)
     const iframeRef = useRef<HTMLIFrameElement>(null)
 
+    useEffect(() => {
+        const handleMessage = (event: MessageEvent) => {
+            console.log("Received message from Unity:", event.data)
+
+            // Check if the message is a string and includes "unityLoaded"
+            if (typeof event.data === "string" && event.data.includes("unityLoaded")) {
+                console.log("Unity has finished loading")
+                setIsLoading(false)
+                onStart()
+                onLoaded()
+            }
+        }
+
+        console.log("Adding event listener for Unity messages")
+        window.addEventListener("message", handleMessage)
+
+        return () => {
+            console.log("Removing event listener for Unity messages")
+            window.removeEventListener("message", handleMessage)
+        }
+    }, [onLoaded])
+
     return (
         <div className={`relative w-full h-full ${className}`}>
             {isLoading && (
