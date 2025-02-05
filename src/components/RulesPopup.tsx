@@ -9,6 +9,10 @@ interface RulesPopupProps {
 
 const rules = [
   {
+    text: "ブラウザカメラの使用を許可してください。",
+    image: "/images/noimg.png",
+  },
+  {
     text: "手をWebカメラにかざすとUnity上に手のポイントが出現します。",
     image: "/images/noimg.png",
   },

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react"
+import LoadingOverlay from "./LoadingOverlay"
 
 interface UnityWebGLProps {
     onStart: () => void
@@ -39,7 +40,7 @@ export default function UnityWebGL({ onStart, onLoaded, className = "" }: UnityW
         <div className={`relative w-full h-full ${className}`}>
             {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                    <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                    <LoadingOverlay/>
                 </div>
             )}
             <iframe
