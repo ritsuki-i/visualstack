@@ -5,6 +5,16 @@ import { drawConnectors, drawLandmarks } from '@mediapipe/drawing_utils';
 import { HAND_CONNECTIONS } from '@mediapipe/hands';
 import { Camera } from '@mediapipe/camera_utils';
 
+interface UnityInstance {
+  SendMessage(objectName: string, methodName: string, message: string): void;
+}
+
+declare global {
+  interface Window {
+    unityInstance?: UnityInstance;
+  }
+}
+
 function VisualCamera() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -72,11 +82,11 @@ function VisualCamera() {
           //  ↑ Unity HTML テンプレートによっては window.gameInstance ではなく
           //    globalThis.unityInstance など違う変数名の場合があります。
 
-          console.log("unityInstance:", (window as any).unityInstance);
-          if ((window as any).unityInstance) {
-            (window as any).unityInstance.SendMessage("UDPReceiver", "ReceiveHandData", jsonData);
+          console.log("unityInstance:", window.unityInstance);
+          if (window.unityInstance) {
+            window.unityInstance.SendMessage("UDPReceiver", "ReceiveHandData", jsonData);
           }
-        }else{
+        } else {
           console.log('typeof window !== "undefined"');
         }
       }

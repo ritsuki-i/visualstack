@@ -53,10 +53,6 @@ export default function RulesPopup({ onClose, isFirstTime }: RulesPopupProps) {
     }
   }
 
-  const resetSlides = () => {
-    setCurrentSlide(0)
-  }
-
   return (
     <motion.div
       className={`fixed inset-0 z-50 flex items-center justify-center ${isFirstTime ? "bg-black bg-opacity-50" : ""}`}
